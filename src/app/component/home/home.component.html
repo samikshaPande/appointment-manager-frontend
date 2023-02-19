@@ -1,0 +1,29 @@
+<div *ngIf="loggedInUser">
+    <nav class="navbar navbar-expand-lg">
+        <div style="flex:1; flex-basis: 10%;">            
+            <div class="logo"><img src="../../../assets/images/logo.png" width="80" height="70" alt="logo"></div>
+        </div>
+
+        <div class="loggedIn-user" style="display: inline-flex;">
+            <div style="padding: 0 10px">
+                Welcome <h5><i>{{loggedInUser}}</i></h5>
+            </div>
+            <ion-icon name="log-out-outline" class="logout" (click)="logout()"></ion-icon>
+        </div>
+    </nav>
+
+    <div class="wrapper-content">
+        <div class="wrapper-calendar">
+            <input type="date" [(ngModel)]="selectedDate" value="currentDate"
+            (change)="formattedDate = selectedDate" class="calendar-sm">
+            <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)" class="calendar-lg"
+                style="width:300px"></mat-calendar>
+            <button class="btn btn-add btn-gradient add-lg" *ngIf="userRole == 'ASSISTANT'"
+                (click)="createNewAppointment()" [disabled]="selectedDate<currentDate">New Appointment &nbsp;<i
+                    class="fa fa-solid fa-plus"></i></button>
+        </div>
+        <div class="wrapper-table">
+            <app-data-table [selectedDate]="formattedDate" [role]="userRole"></app-data-table>
+        </div>
+    </div>
+</div>

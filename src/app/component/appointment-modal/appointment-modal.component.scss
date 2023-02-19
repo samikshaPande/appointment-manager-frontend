@@ -1,0 +1,38 @@
+.input-box {
+    position: relative;
+    margin: 15px 0;
+    width: 100%;
+    border-bottom: 2px solid #3d3c3c;
+    background: transparent;
+    display: flex;
+}
+
+.input-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0px 0px 0 5px;
+    color: #3d3c3c;
+}
+
+.input-time {
+    float: right;
+    width: 50%;
+}
+
+select {
+    outline: none;
+    border: none;
+    padding: 0 5px 5px 5px;
+}
+
+.btn {
+    margin-right: 15px;
+}
+
+.dialog-date {
+    display: flex;
+    margin-right: 20px;
+    justify-content: right;
+}

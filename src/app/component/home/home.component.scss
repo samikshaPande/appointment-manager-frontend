@@ -1,0 +1,103 @@
+nav {
+    background: black;
+    color: #fff;
+    width: 100vw;
+}
+
+.logo {
+    margin-left: 2rem;
+}
+
+.logout {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    padding-top: 10px;
+    margin-right: 2rem;
+}
+
+.loggedIn-user {
+    color: white;
+}
+
+.loggedIn-user h5:hover {
+    text-decoration: underline;
+}
+
+.calendar-wrapper {
+    margin-left: 2rem;
+    width: 250px;
+}
+
+.table-wrapper {
+    width: 100%;
+    min-width: 400px;
+    margin: 0 2rem;
+}
+
+.btn-gradient {
+    margin: 20px 0;
+    width: 200px;
+    border-radius: 100rem;
+    padding: 1rem;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    font-weight: 700;
+    color: #000;
+    border: solid 3px #3d3c3c;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+        linear-gradient(45deg, #a6c2b5, #fff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+
+.btn-gradient:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+        linear-gradient(45deg, #fff, #a6c2b5);
+}
+
+.mat-calendar {
+    display: contents;
+}
+
+.wrapper-content {
+    display: flex;
+}
+
+.wrapper-calendar {
+    flex: 1;
+    flex-basis: auto;
+    max-width: 300px;
+    margin: 20px
+}
+
+.wrapper-table {
+    flex: 1;
+    flex-basis: auto;
+    margin: 20px;
+    overflow: overlay;
+}
+
+.calendar-sm {
+    display: none;
+}
+
+.calendar-lg {
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .wrapper-content {
+        display: block;
+    }
+
+    .calendar-lg {
+        display: none;
+    }
+
+    .calendar-sm {
+        display: block;
+    }
+
+}

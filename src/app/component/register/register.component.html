@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg">
+    <div style="flex:1; flex-basis: 10%;">
+        <div class="logo" (click)="reload()"><img src="../../../assets/images/logo.png" width="80" height="70" alt="logo"></div>
+    </div>
+</nav>
+<section>
+    <div class="row">
+        <div class="col-md-6 d-sm-none d-none  d-md-block">
+            <app-tagline></app-tagline>
+        </div>
+
+        <div class="col-5">
+            <div class="form-box">
+                <div class="form-value">
+                    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+                        <h2>Sign Up</h2>
+                        <div class="input-box">
+                            <label for="">Role </label>
+                            <input type="radio" value="DOCTOR" name="role" [ngModel]="user.role"> Doctor
+                            <input type="radio" value="ASSITANT" name="role" [ngModel]="user.role"> Assistant
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required [(ngModel)]="user.fullName" name="fullName" id="fullName">
+                            <label for="fullName">Full Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required [(ngModel)]="user.userName" name="userName" id="userName">
+                            <label for="userName">User Name/Email</label>
+                        </div>
+
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required [(ngModel)]="user.password" name="password" id="password">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required [(ngModel)]="user.cnfPassword" name="cnfPassword"
+                                id="cnfPassword">
+                            <label for="cnfPassword">Confirm Password</label>
+                        </div>
+
+                        <button type="Submit" [disabled]="!registerForm.valid">Sign up</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

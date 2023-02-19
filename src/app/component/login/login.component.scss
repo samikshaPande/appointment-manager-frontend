@@ -1,0 +1,58 @@
+h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.forget {
+    color: #3d3c3c;
+    display: flex;
+    justify-content: center;
+
+}
+
+.forget a {
+    margin-bottom: 10px;
+    color: #3d3c3c;
+    text-decoration: none;
+}
+
+.forget a:hover {
+    color: #3d3c3c;
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500px;
+    background: #3d3c3c;
+    color: #fff;
+    border: 0px;
+}
+
+button[disabled]{
+    background-color: #fff;
+    color: #3d3c3c;
+    border:3px solid #3d3c3c;
+
+}
+
+.register {
+    font-size: .9em;
+    color: #3d3c3c;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #3d3c3c;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}

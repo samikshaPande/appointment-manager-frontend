@@ -1,0 +1,39 @@
+<h1 mat-dialog-title> {{modalTitle}}  Appointment</h1>
+<span class="dialog-date">{{data.selectedDate | date: ' MMMM d, y'}}</span>
+
+<div mat-dialog-content>
+    <div class="form-value">
+        <form [formGroup]="appointmentForm">
+            <div class="input-box" style="margin-top: 0;">
+                <label for="first-name">Title: </label>
+                <input id="first-name" type="text" formControlName="title">
+            </div>
+            <div class="input-box">
+                <label for="first-name">Client Name: </label>
+                <input id="first-name" type="text" formControlName="clientName">
+            </div>
+            <div class="input-box">
+                <div style="width: 50%;">
+                    <label for="first-name">Start Time: </label>
+                    <input id="first-name" type="time" formControlName="startTime" (change)="getListOfDoctors()">
+                </div>
+                <div class="input-time">
+                    <label for="first-name">End Time: </label>
+                    <input id="first-name" type="time" formControlName="endTime" (change)="getListOfDoctors()">
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="first-name">Doctor: </label>
+                <select formControlName="doctor" (change)="changeDoctor($event)" [disabled]="disableDoctorSelect">
+                    <option value="" [disabled]="disableDoctorSelect">Assign Doctor</option>
+                    <option *ngFor="let doctor of doctorList" [value]="doctor">{{doctor}}</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<div mat-dialog-actions style="width:100%;display: flex; justify-content: right;">
+    <button mat-button class="btn btn-secondary" (click)="onNoClick()">Cancel</button>
+    <button mat-button class="btn btn-primary" cdkFocusInitial (click)="createEditAppointment(data.id)"
+    [disabled]="!appointmentForm.valid">{{modalTitle}}</button>
+</div>

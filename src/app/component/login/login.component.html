@@ -1,0 +1,48 @@
+<section>
+    <div class="row">
+        <div class="col-md-6 d-sm-none d-none  d-md-block">
+            <app-tagline></app-tagline>
+        </div>
+
+        <div class="col-5">
+            <div class="form-box">
+                <div class="form-value">
+                    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                        <h2>Login</h2>
+                        <div *ngIf="isLoginFailed" class="err-msg">Something went wrong, please try later.</div>
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required [(ngModel)]="user.userName" name="userName" #userName="ngModel"
+                                minlength="6" maxlength="20" [ngClass]="{ 'is-invalid': userName.errors }">
+                            <label for="userName">User Name</label>
+                            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="userName.errors?.['required'] && userName">Username is required</div>
+                                <div *ngIf="userName.errors?.['minlength']">Username must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required [(ngModel)]="user.password" name="password"
+                                #password="ngModel" minlength="6" maxlength="20"
+                                [ngClass]="{ 'is-invalid': password.errors }">
+                            <label for="password">Password</label>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="password.errors?.['required'] && password">Password is required</div>
+                                <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="forget">
+                            <a [routerLink]="['/reset']">Forget Password</a>
+                        </div>
+                        <button type="Submit" [disabled]="!loginForm.valid">Log in</button>
+                        <div class="register">
+                            <p>Don't have a account <a [routerLink]="['/register']">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

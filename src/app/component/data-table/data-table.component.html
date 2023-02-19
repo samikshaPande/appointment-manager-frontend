@@ -1,0 +1,74 @@
+<div class="filter-box">
+    <mat-form-field>
+        <input matInput class="input-box" (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
+</div>
+
+<div class="table">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header hidden="true"> ID </th>
+            <td mat-cell *matCellDef="let row" hidden="true"> {{row.id}} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+            <td mat-cell *matCellDef="let row" class="app-id" (click)="editAppointment(row)"> {{row.title}} </td>
+        </ng-container>
+
+        <!-- Start Time Column -->
+        <ng-container matColumnDef="startTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </th>
+            <td mat-cell *matCellDef="let row"> {{row.startTime }} </td>
+        </ng-container>
+
+        <!-- End Time Column -->
+        <ng-container matColumnDef="endTime">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+            <td mat-cell *matCellDef="let row"> {{row.endTime}} </td>
+        </ng-container>
+
+        <!-- Client Name Column -->
+        <ng-container matColumnDef="clientName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Client Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.clientName}} </td>
+        </ng-container>
+
+        <!-- Doctor Column -->
+        <ng-container matColumnDef="doctor">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [hidden]="role =='DOCTOR'"> Assigned Doctor </th>
+            <td mat-cell *matCellDef="let row" [hidden]="role =='DOCTOR'"> {{row.doctor}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+            <td mat-cell *matCellDef="let row">
+                <ion-icon name="checkmark-circle-outline" class="checkmark" *ngIf="row.status==0 || row.status==1"
+                    [title]="row.status==0?'Mark as Complete':'Completed'"
+                    (click)="updateStatus(dataSource.filteredData.indexOf(row), 1)"
+                    [ngStyle]="{'color':row.status==1?'green':'black'}"></ion-icon>
+                <ion-icon name="close-circle-outline" class="cancel" *ngIf="row.status==0 || row.status==2"
+                    [title]="row.status==0?'Mark as Cancel':'Cancelled'"
+                    (click)="updateStatus(dataSource.filteredData.indexOf(row), 2)"
+                    [ngStyle]="{'color':row.status==2?'red':'black'}"></ion-icon>
+                <ion-icon name="timer-outline" *ngIf="row.status==0" title="Scheduled"></ion-icon>
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No appoinments for {{this.selectedDate}}, Add new appointments.</td>
+        </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"
+        *ngIf="dataSource.filteredData.length>0"></mat-paginator>
+
+</div>

@@ -1,0 +1,48 @@
+table th{
+    background: #3d3c3c;
+    color:#fff;
+}
+
+.filter-box{
+    margin:20px 0;
+    border-bottom: 2px solid #3d3c3c;
+    width: auto;
+}
+
+ion-icon{
+    font-size: 20px;
+}
+
+.checkmark:hover{
+    color:green;
+}
+
+.cancel:hover{
+    color:red;
+}
+
+.mat-cell{
+    padding: 20px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0px 0px 0 5px;
+    color: #3d3c3c;
+}
+
+.app-id{
+    text-decoration: underline;    
+}
+
+.app-id:hover{
+    cursor: pointer;
+    color: blue;
+}
+
+::ng-deep .mat-paginator-container{
+    justify-content: flex-start;
+  }

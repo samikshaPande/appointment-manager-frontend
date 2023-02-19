@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+
+nav {
+    background:#797d7b;
+    color: #fff;
+    width: 100vw;
+}
+
+.logo {
+    margin-left: 2rem;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: #797d7b;
+}
+
+
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    color: #3d3c3c;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 25px 0;
+    width: 320px;
+    border-bottom: 2px solid #3d3c3c;
+    background: transparent;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #3d3c3c;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus~label,
+input:valid~label,
+input:valid:required~label {
+    top: -10px;
+}
+
+.inputbox input {
+    width: 99%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 5px 0px 0 5px;
+    color: #3d3c3c;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px #fff inset;
+    /* Change the color to your own background color */
+    -webkit-text-fill-color: #3d3c3c;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: white, 0 0 0 50px white inset;
+    -webkit-text-fill-color: #3d3c3c;
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    right: 8px;
+    color: #3d3c3c;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.invalid-feedback{
+    padding: 0px 0px 0 5px;
+}
+
+.err-msg{
+    color: red;
+    padding:10px 5px;
+}
