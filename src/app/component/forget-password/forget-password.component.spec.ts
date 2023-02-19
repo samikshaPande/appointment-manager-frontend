@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TaglineComponent } from '../tagline/tagline.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ForgetPasswordComponent } from './forget-password.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ForgetPasswordComponent', () => {
   let component: ForgetPasswordComponent;
@@ -8,9 +11,15 @@ describe('ForgetPasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForgetPasswordComponent ]
+      imports: [
+        FormsModule, ReactiveFormsModule
+      ],
+      declarations: [ForgetPasswordComponent, TaglineComponent],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ForgetPasswordComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TaglineComponent } from '../tagline/tagline.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -8,7 +11,11 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ]
+      imports:[FormsModule],
+      declarations: [ RegisterComponent, TaglineComponent ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
     .compileComponents();
 
